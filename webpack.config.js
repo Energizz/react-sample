@@ -12,7 +12,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-    './src/app/index.js',
+    './src/app/app.js',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
