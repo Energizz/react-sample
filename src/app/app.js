@@ -1,4 +1,4 @@
-import '@voxeet/react-widget/dist/voxeet-react-widget.css'
+import '@voxeet/react-components/dist/voxeet-react-components.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import thunkMidleware from 'redux-thunk'
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 
-import { Widget, reducer as voxeetReducer } from '@voxeet/react-widget'
+import { ConferenceRoom, reducer as voxeetReducer } from '@voxeet/react-components'
 
 const reducers = combineReducers({
   voxeet: voxeetReducer
@@ -19,14 +19,15 @@ const configureStore = () => createStore(
 )
 
 const settings = {
-  consumerKey: "NGZmcHUxYm5hYzNlYQ",
-  consumerSecret: "NDJwaDkyZ2MwcHRvc25uMWlsdnA0ZDZlcmo",
+  consumerKey: "YOUR_KEY",
+  consumerSecret: "YOUR_SECRET",
   conferenceAlias: 'Sample2'
 }
 
 ReactDOM.render(
   <Provider store={configureStore()}>
-    <Widget
+    <ConferenceRoom
+      isWidget
       consumerKey={settings.consumerKey}
       consumerSecret={settings.consumerSecret}
       conferenceAlias={settings.conferenceAlias}

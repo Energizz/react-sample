@@ -1,4 +1,4 @@
-Voxeet React Widget Sample
+Voxeet React Sample
 =====================
 
 # Instructions
