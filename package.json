@@ -11,7 +11,7 @@
     "BEHUET Jérôme <jbehuet@gmail.com>"
   ],
   "dependencies": {
-    "@voxeet/react-components": "^0.24.0",
+    "@voxeet/react-components": "^0.26.0",
     "@voxeet/voxeet-web-sdk": "^1.4.1",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",

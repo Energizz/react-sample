@@ -61,7 +61,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': `""`
+        'NODE_ENV': `""`,
+        'CONSUMER_KEY': JSON.stringify(process.env.CONSUMER_KEY || ''),
+        'CONSUMER_SECRET': JSON.stringify(process.env.CONSUMER_SECRET || ''),
       }
     }),
     new HtmlWebpackPlugin({

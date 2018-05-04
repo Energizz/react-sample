@@ -6,7 +6,8 @@ import { Provider } from 'react-redux'
 import thunkMidleware from 'redux-thunk'
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 
-import { ConferenceRoom, reducer as voxeetReducer } from '@voxeet/react-components'
+import { StatusButton, StatusCard, ConferenceRoom, reducer as voxeetReducer } from '@voxeet/react-components'
+import FakeMessages from './FakeMessages';
 
 const reducers = combineReducers({
   voxeet: voxeetReducer
@@ -19,19 +20,30 @@ const configureStore = () => createStore(
 )
 
 const settings = {
-  consumerKey: "YOUR_KEY",
-  consumerSecret: "YOUR_SECRET",
+  consumerKey: process.env.CONSUMER_KEY,
+  consumerSecret: process.env.CONSUMER_SECRET,
   conferenceAlias: 'Sample2'
 }
 
 ReactDOM.render(
   <Provider store={configureStore()}>
-    <ConferenceRoom
-      isWidget
-      consumerKey={settings.consumerKey}
-      consumerSecret={settings.consumerSecret}
-      conferenceAlias={settings.conferenceAlias}
-    />
+    <div>
+      <FakeMessages />
+        <StatusButton
+        isModal
+        conferenceAlias={settings.conferenceAlias}
+      />
+      <StatusCard
+        isModal
+        conferenceAlias={settings.conferenceAlias}
+       />
+      <ConferenceRoom
+        isModal
+        consumerKey={settings.consumerKey}
+        consumerSecret={settings.consumerSecret}
+        conferenceAlias={settings.conferenceAlias}
+      />
+    </div>
   </Provider>,
   document.getElementById('app')
 )
