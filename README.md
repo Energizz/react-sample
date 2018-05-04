@@ -21,7 +21,7 @@ The build artifacts will be stored in the dist/ directory.
 #### via Docker
 
 1. Create docker image : `docker build --no-cache --build-arg CONSUMER_KEY='YOUR CONSUMER KEY' --build-arg CONSUMER_SECRET='YOUR CONSUMER SECRET' -t voxeet-react-sample .` 
-2. Run : `docker run -p 3000:80 voxeet-react-sample` 
+2. Run : `docker run -p 3000:443 voxeet-react-sample` 
 3. Open `http://localhost:3000` with your browser (Chrome or Firefox)
 
 

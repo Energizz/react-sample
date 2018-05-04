@@ -1,6 +1,6 @@
 # Dockefile
 # build environment
-FROM node:latest as builder
+FROM node:9 as builder
 
 ARG CONSUMER_KEY
 ARG CONSUMER_SECRET
@@ -19,5 +19,7 @@ RUN npm run build
 # production environment
 FROM nginx:latest
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
-EXPOSE 80
+COPY /nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY /nginx/cert/ /etc/nginx/cert/
+EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]
